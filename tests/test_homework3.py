@@ -1,5 +1,4 @@
 import time
-from turtle import title
 
 from selenium import webdriver
 from selenium.webdriver.common.by import By
