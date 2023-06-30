@@ -9,7 +9,6 @@ BMW_OPTION = '[id="bmwradio"]'
 BENZ_OPTION = '[id="benzradio"]'
 HONDA_OPTION = '[id="hondaradio"]'
 
-
 @pytest.mark.usefixtures("current_driver")
 class Test1:
     def test_benz(self):
@@ -35,3 +34,10 @@ class Test1:
 
 # def test_benz_no_class(current_driver):
 #    current_driver.get(url="https://www.google.com")
+
+
+
+
+
+
+
