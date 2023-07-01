@@ -10,7 +10,7 @@ from selenium.common.exceptions import TimeoutException, NoSuchElementException
 class BasePage:
     TIMEOUT = 20
 
-    def __init__(self, driver):
+    def __init__(self, driver: object) -> object:
         self.driver = driver
 
     ELEMENT_WITH_STRING = (By.XPATH, '//*[text()="%s"]')
@@ -24,8 +24,17 @@ class BasePage:
         )
         return element
 
-    def click_element(self, locator: tuple):
-        self.get_element(locator).click()
-
-    def check_element_selected(self, locator: tuple) -> bool:
-        return self.get_element(locator).is_selected()
+    # def click_element(self, locator: tuple) -> object:
+    #     self.get_element(locator).click()
+    #
+    # def check_element_selected(self, locator: tuple) -> bool:
+    #     return self.get_element(locator).is_selected()
+    #
+    # def send_keys_to_element(self, param1: object = "anahitaleqs89@gmail.com", param2: object = "Anedkuk0123") -> object:
+    #     pass
+    #
+    # def execute_script(self, param="window.scrollTo(0, document.body.scrollHeight/3)"):
+    #     pass
+    #
+    # def get_attribute(self, param, param1):
+    #     pass

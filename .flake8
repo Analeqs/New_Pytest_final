@@ -1,0 +1,19 @@
+# See: https://flake8.pycqa.org/en/latest/user/error-codes.html
+# See: https://flake8.pycqa.org/en/latest/user/configuration.html
+
+[flake8]
+ignore =
+  # Imported but unused - useful for re-exporting, for example
+  F401,
+  # In star imports, or undefined
+  F405,
+  F403,
+
+  # f-string is missing placeholders
+  F541,
+
+
+max-line-length = 120
+exclude =
+  .git
+  venv
