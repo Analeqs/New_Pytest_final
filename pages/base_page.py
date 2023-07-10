@@ -1,16 +1,13 @@
-import time
-
 from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webelement import WebElement
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
-from selenium.common.exceptions import TimeoutException, NoSuchElementException
 
 
 class BasePage:
     TIMEOUT = 20
 
-    def __init__(self, driver: object) -> object:
+    def __init__(self, driver: object):
         self.driver = driver
 
     ELEMENT_WITH_STRING = (By.XPATH, '//*[text()="%s"]')
@@ -24,17 +21,23 @@ class BasePage:
         )
         return element
 
-    # def click_element(self, locator: tuple) -> object:
-    #     self.get_element(locator).click()
+    def click_element(self, locator: tuple):
+        self.get_element(locator).click()
+
+    def fill_input(self, locator, text):
+        self.get_element(locator).send_keys(text)
+
+    def get_element_text(self, locator):
+        return self.get_element(locator).text
+
+    def check_element_selected(self, locator: tuple) -> bool:
+        return self.get_element(locator).is_selected()
+
     #
-    # def check_element_selected(self, locator: tuple) -> bool:
-    #     return self.get_element(locator).is_selected()
-    #
-    # def send_keys_to_element(self, param1: object = "anahitaleqs89@gmail.com", param2: object = "Anedkuk0123") -> object:
-    #     pass
+
     #
     # def execute_script(self, param="window.scrollTo(0, document.body.scrollHeight/3)"):
     #     pass
     #
-    # def get_attribute(self, param, param1):
-    #     pass
+    def get_attribute(self, locator):
+        return self.get_attribute("value")

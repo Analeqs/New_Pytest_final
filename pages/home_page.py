@@ -2,7 +2,7 @@ from pages import base_page
 from pages.base_page import BasePage
 from selenium.webdriver.common.by import By
 
-from tests.test_new_case import SIGN_IN
+# from tests.test_new_case import SIGN_IN
 
 
 class HomePage(BasePage):
@@ -10,25 +10,11 @@ class HomePage(BasePage):
     def __init__(self, driver):
         super().__init__(driver)
 
-    BMW_OPTION = '[id="bmwradio"]'
-    BENZ_OPTION = '[id="benzradio"]'
-    HONDA_OPTION = '[id="hondaradio"]'
-    SIGN_IN = '//a[text()="Sign In"]'
-    LOGIN = 'input[placeholder="Email Address"]'
-    PASSWORD = 'input[placeholder="Password"]'
-    LOGIN_BUTTON = 'button[value="Login"]'
+    SIGN_IN = (By.XPATH, '//a[text()="Sign In"]')
     AVATAR = 'Img[class="zl-navbar-rhs-img "]'
     LOGOUT = '//a [text()="Logout"]'
     MY_ACCOUNT = '//a[text()="My Account "]'
 
-    def check_bmw_option_is_selected(self):
-        assert not self.check_element_selected((By.CSS_SELECTOR, self.BMW_OPTION))
+    def click_sign_in(self):
+        self.click_element(self.SIGN_IN)
 
-    def check_benz_option_is_selected(self):
-        assert self.check_element_selected((By.CSS_SELECTOR, self.BENZ_OPTION))
-
-    def check_honda_option_is_not_selected(self):
-        assert not self.check_element_selected((By.CSS_SELECTOR, self.HONDA_OPTION))
-
-    def click_login_button(self):
-        self.click_element((By.XPATH, SIGN_IN))
