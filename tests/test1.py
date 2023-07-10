@@ -55,3 +55,5 @@ class TestClassCase:
 
     def test_31(self, fixture_auto):
         assert True
+
+
