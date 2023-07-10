@@ -70,3 +70,13 @@ def test_correct_login_password_login_was_successfully(current_driver):
     assert expected_email == current_email
     print(current_email)
 
+
+def test_reset_password(current_driver):
+    sign_in_page = SignInPage(driver=current_driver)
+    home_page = HomePage(driver=current_driver)
+    home_page.click_sign_in()
+    time.sleep(2)
+    sign_in_page.reset_password()
+    time.sleep(2)
+
+
