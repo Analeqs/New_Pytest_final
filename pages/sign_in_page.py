@@ -23,7 +23,7 @@ class SignInPage(BasePage):
     FORGOT_PASSWORD = (By.CSS_SELECTOR,'[class="dynamic-link small"]')
     RESET_EMAIL_ADDRESS = (By.CSS_SELECTOR, 'input[placeholder="Email Address"]')
     SEND_PASSWORD_RESET_LINK= (By.CSS_SELECTOR, '[class="btn btn-primary btn-block btn-md dynamic-button"]')
-
+    WRONG_EMAIL_ERROR = (By.CSS_SELECTOR, '[class="dynamic-text help-block" ]')
     def fill_login(self, email):
         self.fill_input(locator=self.LOGIN_INPUT,text=email)
 
@@ -66,12 +66,11 @@ class SignInPage(BasePage):
         return email.get_attribute('value')
     def reset_password(self):
         self.click_element(self.FORGOT_PASSWORD)
-        self.get_element(self.RESET_EMAIL_ADDRESS).send_keys("email")
+        self.get_element(self.RESET_EMAIL_ADDRESS).send_keys("email@gmail.com")
         self.click_element(self.SEND_PASSWORD_RESET_LINK)
 
-
-
-
+    def return_wrong_email_address_error(self):
+        return self.get_element_text(self.WRONG_EMAIL_ERROR)
 
 
 
