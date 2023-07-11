@@ -75,8 +75,11 @@ def test_reset_password(current_driver):
     sign_in_page = SignInPage(driver=current_driver)
     home_page = HomePage(driver=current_driver)
     home_page.click_sign_in()
+    sign_in_page.reset_password(email="m@gmail.com")
+    current_error_message = sign_in_page.return_wrong_email_address_error()
+    expected_error_message = "We cannot find a user with that e-mail address"
     time.sleep(2)
-    sign_in_page.reset_password()
-    time.sleep(2)
+    assert expected_error_message == current_error_message
+    print(current_error_message)
 
 

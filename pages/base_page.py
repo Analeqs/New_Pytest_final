@@ -39,5 +39,6 @@ class BasePage:
     # def execute_script(self, param="window.scrollTo(0, document.body.scrollHeight/3)"):
     #     pass
     #
-    def get_attribute(self, locator):
-        return self.get_attribute("value")
+    def get_attribute_value(self, locator):
+        element = self.get_element(locator)
+        return element.get_attribute("value")

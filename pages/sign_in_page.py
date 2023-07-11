@@ -62,11 +62,13 @@ class SignInPage(BasePage):
         self.click_element(self.MY_ACCOUNT)
 
     def return_email_value(self):
-        email = self.get_element(self.EMAIL_ADDRESS)
-        return email.get_attribute('value')
-    def reset_password(self):
+        # email = self.get_element(self.EMAIL_ADDRESS)
+        # return email.get_attribute('value')
+        return self.get_attribute_value(locator=self.EMAIL_ADDRESS)
+    def reset_password(self, email= "email@gmail.com"):
         self.click_element(self.FORGOT_PASSWORD)
-        self.get_element(self.RESET_EMAIL_ADDRESS).send_keys("email@gmail.com")
+        self.get_element(self.RESET_EMAIL_ADDRESS).send_keys(email)
+        time.sleep(3)
         self.click_element(self.SEND_PASSWORD_RESET_LINK)
 
     def return_wrong_email_address_error(self):
